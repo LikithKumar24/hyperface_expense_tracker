@@ -10,7 +10,7 @@ from database import (
 st.set_page_config(page_title="Expense Tracker", layout="wide")
 st.title("💰 Expense Tracker")
 
-# --- Add Transaction ---
+
 with st.form(key='add_form'):
     col1, col2 = st.columns(2)
     with col1:
@@ -24,13 +24,13 @@ with st.form(key='add_form'):
         add_transaction(str(date), t_type, amount, description)
         st.success("Transaction added!")
 
-# --- Transaction Table ---
+
 st.subheader("📜 Transaction History")
 data = fetch_all_transactions()
 df = pd.DataFrame(data, columns=["ID", "Date", "Type", "Amount", "Description"])
 st.dataframe(df, use_container_width=True)
 
-# --- Balance Calculation ---
+
 if not df.empty:
     credit = df[df["Type"] == "Credit"]["Amount"].sum()
     debit = df[df["Type"] == "Debit"]["Amount"].sum()
@@ -40,11 +40,11 @@ if not df.empty:
     col2.metric("Total Debit", f"₹{debit:.2f}")
     col3.metric("Balance", f"₹{balance:.2f}")
 
-# --- Visual Analytics ---
+
 st.subheader("📊 Visual Insights")
 col1, col2 = st.columns(2)
 
-# Pie Chart - Expense by Category
+
 with col1:
     st.markdown("### Expense Distribution by Description")
     dist = get_expense_distribution()
@@ -58,7 +58,7 @@ with col1:
     else:
         st.info("No debit transactions yet.")
 
-# Bar Chart - Credit vs Debit
+
 with col2:
     st.markdown("### Credit vs Debit")
     summary = get_credit_debit_summary()
@@ -73,14 +73,14 @@ with col2:
     else:
         st.info("No transactions to visualize.")
 
-# --- Delete Transaction ---
+
 with st.expander("🗑️ Delete Transaction"):
     id_to_delete = st.number_input("Enter ID to delete", min_value=1, step=1)
     if st.button("Delete"):
         delete_transaction(id_to_delete)
         st.success(f"Transaction ID {id_to_delete} deleted!")
 
-# --- Edit Transaction ---
+
 with st.expander("✏️ Edit Transaction"):
     id_to_edit = st.number_input("Enter ID to edit", min_value=1, step=1)
     new_date = st.date_input("New Date")
