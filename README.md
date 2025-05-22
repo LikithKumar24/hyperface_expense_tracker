@@ -5,7 +5,7 @@ Follow these steps to run the project locally:
 
 1. Clone the Repository
 Edit
-git clone https://github.com/your-username/expense-tracker.git
+git clone https://github.com/LikithKumar24/hyperface_expense_tracker.git
 cd expense-tracker
 
 3. Create and Activate Virtual Environment
