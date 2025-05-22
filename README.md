@@ -25,9 +25,9 @@ streamlit run app.py
 The app will open automatically in your default browser at http://localhost:8501.
 
 Structure
-expense-tracker/
-├── app.py                # Streamlit frontend
-├── database.py           # SQLite functions (CRUD operations)
-├── requirements.txt      # Required Python libraries
-├── README.md             # Project documentation
-└── .gitignore            # Files and folders to ignore in Git
+expense-tracker
+ app.py                # Streamlit frontend
+database.py           # SQLite functions (CRUD operations)
+ requirements.txt      # Required Python libraries
+ README.md             # Project documentation
+ .gitignore            # Files and folders to ignore in Git
