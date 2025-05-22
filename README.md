@@ -1,1 +1,2 @@
 # hyperface_expense_tracker
+This Streamlit app is a simple CRUD-based expense tracker. It allows users to add, view, update, and delete financial transactions stored in an SQLite database. The app also calculates and displays the current balance based on credit and debit records. I used Pandas for data handling, and created a clean UI with Streamlit’s forms, columns, and expanders. All DB operations are handled in a separate database.py file for modularity.
